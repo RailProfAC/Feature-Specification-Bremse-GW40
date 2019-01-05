@@ -99,36 +99,39 @@ Aus Zulassungsgründen wird ein UIC/TSI-kompatibles Steuerventil eingesetzt.
 Komponente | Schnittstelle | Kommentar 
 --- | --- | ---
 Steuerventil  | Verschraubung gemäß gewähltem Steuerventil | 
-| Schnelllösen, Bremsstellung tbd | 
+Steuerventil | Schnelllösen, Bremsstellung **tbd** | 
 Relaisventil | Verschraubung gemäß gewähltem Steuerventil | 
-| Cv-Druck |
-| R-Druck |
-| T-Druck |
-| C-Druck |
- Endabsperrhähne | Verschraubung nach DIN EN 14601 (oder Adaption) |
+Relaisventil | Cv-Druck |
+Relaisventil | R-Druck |
+Relaisventil | T-Druck |
+Relaisventil | C-Druck |
+Endabsperrhähne | HLL-seitige Verschraubung nach DIN EN 14601 (oder Adaption) |
+Endabsperrhähne | Bei Verwendung heco-Komponente: Stecker nach DIN 43650 (2x) |
 Außenanzeige | Verschraubung Pufferträger |
-| Anschluss Kupplungsdruck |
+Außenanzeige | Anschluss Kupplungsdruck |
 Feststellbremse | Anschluss an Bremsgestänge bzw. Bremszange| 
 ep-Bremsen | Anschluss HLL | 
-| Verbindung zum Fzg |
+ep-Bremsen | Verbindung zum Fzg |
 Messung C-Druck | Einschraubung C-Leitung | 
 
-### 3.3 Software Interfaces ###
+### 3.3 Electrical and Software Interfaces ###
 
 Komponente | Funktion | Schnittstelle | Kommentar 
 --- | --- | --- | ---
-Steuerventil | Schnelllösen | tbd: Ventil oder Antrieb? High active | 
-| Bremsstellung | tbd | 
+Steuerventil | Schnelllösen | **tbd**: Ventil oder Antrieb? High active | 
+Steuerventil | Bremsstellung | **tbd** | 
 Relaisventil | | keine | 
-Endabsperrhähne | Öffnen | tbd |
-Endabsperrhähne | Schließen | tbd |
-Außenanzeige | | keine |Anlegen | 
-Feststellbremse | Anlegen | tbd |
-Feststellbremse | Lösen | tbd |
-Feststellbremse | Rückmeldung gelöst | tbd |
+Endabsperrhähne | Öffnen | heco: 24 V an (3) - 5 W durchschnittliche Leistung |
+Endabsperrhähne | Schließen | heco: 24 V an (2) - 5 W durchschnittliche Leistung |
+Endabsperrhähne | Rückmeldung Offen | heco: (1)-(3) geschaltet| 
+Endabsperrhähne | Rückmeldung Geschlossen | heco: (1)-(2) geschaltet| 
+Außenanzeige | | keine | | 
+Feststellbremse | Anlegen | **tbd** |
+Feststellbremse | Lösen | **tbd** |
+Feststellbremse | Rückmeldung gelöst | **tbd** |
 ep-Bremsen | Bremsen | 24 V an Ventil (NC) | 
-Messung C-Druck | Messwert | 4-20 mA, Bereich tbd | 
-| Versorgung | tbd |
+Messung C-Druck | Messwert | 4-20 mA, Bereich **tbd** | 
+Messung C-Druck | Versorgung | **tbd** |
 
 ### 3.4 Communication Interfaces ###
 
@@ -149,7 +152,7 @@ Messung C-Druck | Messwert | 4-20 mA, Bereich tbd |
 
 1. Die Endabsperrhähne verfügen über einen freien Querschnitt von 1,25".
 1. Die Endabsperrhähne sind bistabil, d.h. verbleiben ohne Betätigung in ihrem letzten Zustand.
-1. Die Betätigungszeit für den Übergang Öffnen-Schließen beträgt maximal 10 s.
+1. Die Betätigungszeit für den Übergang Öffnen-Schließen beträgt maximal 60 s.
 1. Das Funktionsprinzip der Hähne ist geeignet, die Anforderungen der DIN EN 14601 erfüllen zu können. Für die Demonstratoren und Labormuster muss diese Norm nicht erfüllt werden.
 1. Eine fahrzeugseitige Verschraubung nach G1 1/4i (DIN EN ISO 228-1) ist zu bevorzugen. Für den Demonstrator kann die Kompatibilität durch einen Adapter hergestellt werden.
 1. Kupplungsseitig ist eine Verschraubung mit Whitworth-Gewinde mit stumpfen Gewinden für G1 1⁄4i—Leitungen zu bevorzugen. Für den Demonstrator kann die Kompatibilität durch einen Adapter hergestellt werden.
@@ -225,4 +228,8 @@ Messung C-Druck | Messwert | 4-20 mA, Bereich tbd |
 
 # 6 Other Requirements #
 
-<!--appendix-->
+# Appendix #
+
+## Schaltung heco-Muffenkugelhahn ##
+
+![Schaltbild Dreidraht](Bilder/heco3Draht.png)
