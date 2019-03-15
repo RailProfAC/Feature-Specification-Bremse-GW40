@@ -8,9 +8,8 @@ FH Aachen
 ## Revision History ###
 
 Name | Date | Reason for Changes | Version
----  | ---  | ---                | ---
-Pfaff | 15.03.2019 | Draft distribution | 0.1
-     |      |                    | 
+---  | --- | --- | ---
+Pfaff | 15.03.2019 | Draft distribution| 0.1
 
 ## Open Items ##
 
@@ -22,7 +21,7 @@ Pfaff | 15.03.2019 | Draft distribution | 0.1
 ## Parts list ##
 
 Pos. | Anzahl | Bezeichung | Zeichung / Kommentar
----  | ---  | ---                | ---
+--- | --- | ---| ---
 02.01 | 2 | Aussenanzeige HL | Vergleichbar mit C-Druck-Anzeige
 02.02 | 2 | Endabsperrhahn 1,25" | z.B. Muffenkugelhahn Heco, Rückmeldekontakte
 04.01 | 1 | ep-Bremsen | Mg-Ventil NC
