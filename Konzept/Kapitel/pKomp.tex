@@ -1,0 +1,50 @@
+\section{Konzept pneumatischer Komponenten} \label{sec:pKomp}
+In diesem Kapitel werden die pneumatischen Komponenten mit ihrem dahinterstehenden Konzept einzeln beschrieben. Dieses Kapitel ist zugehörig zum Arbeitspaket 3 - Entwicklung Aktorik; genauer AP 3a: Konzeptentwicklung Aktorik und Aktorsteuerung und behandelt die (pneumatischen) Aktoren.\par
+Die pneumatischen Komponenten sind in Abbildung \ref{fig:pKomp} in grün farblich hervorgehoben.\par
+Für den \gls{Demonstrator} ist eine teilautomatisierte Bremssteuerung geplant. Diese beinhaltet die Aktorik des Güterwagens 4.0 - siehe dazu Abbildung \ref{fig:UIC-Bremse} auf Seite \pageref{fig:UIC-Bremse} und den Anhang \ref{sec:A_Bremse40} zur \gls{Bremse 4.0} - die Aktoren an den Endabsperrhähnen und \gls{ep-assist-Bremsen}. Das Steuerventil 4.0 besteht neben dem  Steuerventil gemäß EN 15355 und sowie den gegebnüber einem üblichen Güterwagenbremssystem unverändrten A- und R-Kammern auch aus einigen Aktoren.\par
+\begin{figure}[hbt]
+    \centering
+    \input{Bilder/SchemaPKomp.tex}
+    \caption{Pneumatische Komponenten des Gesamtsystems}
+    \label{fig:pKomp}
+\end{figure}
+Alle Aktoren, abgesehen von denen für \gls{ep-assist-Bremsen}, sollen vor Fahrtantritt abschaltbar sein, um ein dem üblichen Güterwagen gleichwertiges Verhalten während des Hauptlaufs zu gewährleisten. Damit sie nach Abschaltung in der zuletzt eingestellten Position bleiben werden durch Stellmotoren  betätigte Kugelhähne verwendet. Diese halten sicher ihre Stellung auch ohne Stromversorgung. Für die Funktion \gls{ep-assist-Bremsen} wird ein Magnetventil, das bestromt die HL lokal entlüftet, eingesetzt.\par
+Die \gls{Bremse 4.0} besteht aus der Hauptluftleitung, dem Bremsgestänge, dem Steuerventil 4.0, einem Relaisventil, zwei C-Druck-Sensoren, der Feststellbremse und \gls{ep-assist-Bremsen}.\par
+\begin{figure}
+    \centering%[hbt]
+    %\includegraphics[width=10cm%\textwidth
+    %]{Bilder/Abb3_Druckluftbremse.png}
+    \includegraphics[width=12cm]{Bilder/PneumaticScheme}
+    \caption{UIC-kompatible Druckluftbremse des Güterwagen 4.0}% \cite{ETR_2}}
+    \label{fig:UIC-Bremse}
+\end{figure}
+\paragraph{Hauptluftleitung} Die \gls{HL} besteht aus der \gls{HL} selbst, den Endabsperrhähnen (02.02), die bei der \gls{Bremse 4.0} als Muffenkugelhahn ausgeführt werden, zwei Schauzeichen (02.02) für den Druck der \gls{HL} und der Schlauchkupplung nach EN 15807.
+
+\paragraph{Endabsperrhahn} \label{sec:Endabsperrhahn}
+An beiden Enden des Wagens werden die Endabsperrhähne durch Muffenkugelhähne DN32 mit elektrischem Antrieb ausgestattet. Diese sorgen für eine sichere Trennung und Kupplung von Wagen durch automatisches Öffnen und Schließen. Zusätzlich bieten sie eine wichtige Unterstützung zur automatischen \gls{Bremsprobe}, da sie direkt ansteuerbar sind. Sie verfügen über eine manuelle Notbetätigung sowie Rückmeldeschalter.
+
+\paragraph{Bremsgestänge} Das Bremsgestänge bleibt wie gewohnt. Ein ggf. bestehender mechanischer Lastwechsel wird in Stellung Beladen arretiert. Die Lastabbremsung wird im Relaisventil (04.07)realisiert und mit einem Kugelhahn (04.06) automatisiert. 
+
+\paragraph{Steuerventil}\label{sec:Bremsart}
+Das Steuerventil 4.0 besteht aus einem UIC/\acrshort{TSI}-kompatiblen Steuerventil (04.03) mit A-Kammer, einer G/P-Umstellvorrichtung mit visueller Zustandsanzeige (14.02), Schnell- lösen und Bremse aus. Für die Funktion Bremse aus wird der Zustand ebenfalls visuell angezeigt (14.04).
+
+\paragraph{Relaisventil} Das Relaisventil  (04.07) wird für die automatische Lastabbremsung verwendet. Dazu besitzt es ein Vorsteuerventil (04.06) mit Rückmeldeschalter. Zur Überwachung des Zustands und als Rückfallebene wird auch hier eine visuelle Zustandsanzeigeüber die \gls{Lastwechsel}stellung in der Komponente (14.03) umgesetzt.
+
+\paragraph{C-Druck-Sensor} \label{sec:C-Druck}
+Der C-Druck (Bremszylinderdruck) wird mit P/I-Wandlern (04.08) zwischen Relaisventil und Bremszylinder gemessen und u.a. für die \gls{Bremsprobe} benötigt. Es werden zwei Sensoren mit unabhängiger Messung verwendet. Dies ermöglicht eine Zweikanaligkeit für diesen Messwert.
+
+\paragraph{Feststellbremse} Die Feststellbremse besteht aus einem Stellmotor mit mechanischer Übersetzung, einem Rückmeldeschalter (14.01) und einer visuellen Zustandsanzeige (14.05). Durch die Einführung der automatischen Feststellbremse fällt das Legen von \gls{Hemmschuh}en vor dem Wagen weg.
+
+\paragraph{ep-Assist} Bei  \gls{ep-assist-Bremsen} wird die \gls{HL} lokal entlüftet. Ein ep-Lösen findet nicht statt\footnote{Dafür würde eine Hauptbehälterluftleitung benötigt werden, diese ist im Allgemeinen bei \gls{Gueterwagen} nicht vorhanden, darum kann und soll diese Funktion nicht umgesetzt werden. Die indirekte Bremsfunktion bleibt vorhanden.}.  Die elektrische Ansteuerung sorgt für kürzere Durchschlagzeiten, für weniger Verschleiß durch weniger auffahren und kürzere Bremswege durch schnelle Bremsanspruchzeiten. Dafür wird ein 3/2-Wege-Ventil (04.01), mindestens DN 7, in bestromtem Zustand die HL entlüftend, eingesetzt.
+
+\paragraph{Zustandsanzeige pneumatische Aktoren}\label{sec:ZustandKupplung}
+Die pneumatische Bremse benötigt aufgrund der veränderten Technik diverse Zustandsanzeigen. Diese sind sämtlich elektro-mecha- nisch oder elektro-pneumatisch ausgeführt, damit sie auch eine sichere Anzeige bieten, wenn das System vor der \gls{Zugfahrt} abgeschaltet wird.\par
+Folgende Zustandsanzeigen sind vorgesehen:
+\begin{itemize}
+    \item Druckanzeige der Schlauchkupplung (02.01), 1 je Wagenende
+    \item Zustand G/P-Umsteller (14.02), 1 je Wagenseite
+    \item Zustand \gls{Lastwechsel} (14.03), 1 je Wagenseite
+    \item Zustand Bremse (eingeschaltet / ausgeschaltet) (14.04), 1 je Wagenseite
+    \item Zustand Feststellbremse (14.05), 1 je Wagenseite
+\end{itemize}
+%Aktor der zweikanalig den Zustand der pneumatischen Hähne (drucklos, druckbeaufschlagt) anzeigt.

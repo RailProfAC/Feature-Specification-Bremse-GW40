@@ -2,11 +2,11 @@
 \pgfdeclarelayer{foreground}
 \pgfdeclarelayer{Beschriftung}
 %Farbendefinition
-\definecolor{elek}{RGB}{105,105,105}%grau{55,126,184}%blau
-\definecolor{pneu}{RGB}{105,105,105}%grau
-\definecolor{sens}{RGB}{228,26,28}%rot{105,105,105}%grau
-\definecolor{dat}{RGB}{105,105,105}%grau
-\definecolor{strom}{RGB}{105,105,105}%grau %{0,0,0}%schwarz
+\definecolor{elek}{RGB}{55,126,184}%blau
+\definecolor{pneu}{RGB}{77,175,74}%grün
+\definecolor{sens}{RGB}{228,26,28}%rot
+\definecolor{dat}{RGB}{152,78,163}%violet
+\definecolor{strom}{RGB}{0,0,0}%schwarz
 
 \tikzset{wagon/.style={draw = gray, ultra thick, opacity = 0.7}}
 \tikzset{seite/.style={opacity = 1}}
@@ -33,7 +33,7 @@
     %wagon als Basis
     \path[wagon] (-5,-2) -- (-5,2) -- (5,2) -- (5,-2) -- cycle;
     % HL
-    \path[wagon, color=pneu] (-5,-.5) -- (5,-.5) node[pos = 0.6, above] {\color=\gray \tiny{HL}};
+    \path[wagon, color=pneu] (-5,-.5) -- (5,-.5) node[pos = 0.6, above] {\color{gray} \tiny{HL}};
     % Buffer
     \begin{scope}[shift = {(-5,1.5)}]
     	\path[wagon] (-.8,.3) -- (0,.3) -- (0,-.3) -- (-.8,-.3);

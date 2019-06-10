@@ -3,10 +3,10 @@
 \pgfdeclarelayer{Beschriftung}
 %Farbendefinition
 \definecolor{elek}{RGB}{105,105,105}%grau{55,126,184}%blau
-\definecolor{pneu}{RGB}{77,175,74}%grün{pneu}{RGB}{105,105,105}%grau
-\definecolor{sens}{RGB}{105,105,105}%grau
-\definecolor{dat}{RGB}{105,105,105}%grau
-\definecolor{strom}{RGB}{105,105,105}%grau %{0,0,0}%schwarz
+\definecolor{pneu}{RGB}{105,105,105}%grau{77,175,74}%grün
+\definecolor{sens}{RGB}{105,105,105}%grau{228,26,28}%rot
+\definecolor{dat}{RGB}{152,78,163}%violett
+\definecolor{strom}{RGB}{105,105,105}%grau{0,0,0}%schwarz
 
 \tikzset{wagon/.style={draw = gray, ultra thick, opacity = 0.7}}
 \tikzset{seite/.style={opacity = 1}}
@@ -29,11 +29,12 @@
         %Seite 1
         \path[seite] (-12.3, 0) rectangle +(.6,.2) node[pos = 0.5] (seiteB) {Seite 1};
         %Seite 2
-        \path[seite] (10.3, 0) rectangle +(.6,.2) node[pos = 0.5] (seiteB) {Seite 2};      
+        \path[seite] (10.3, 0) rectangle +(.6,.2) node[pos = 0.5] (seiteB) {Seite 2};        
+        
     %wagon als Basis
     \path[wagon] (-5,-2) -- (-5,2) -- (5,2) -- (5,-2) -- cycle;
     % HL
-    \path[wagon, color=pneu] (-5,-.5) -- (5,-.5) node[pos = 0.6, above] {\color=\gray \tiny{HL}};
+    \path[wagon, color=pneu] (-5,-.5) -- (5,-.5) node[pos = 0.6, above] {\color{gray} \tiny{HL}};
     % Buffer
     \begin{scope}[shift = {(-5,1.5)}]
     	\path[wagon] (-.8,.3) -- (0,.3) -- (0,-.3) -- (-.8,-.3);
@@ -115,7 +116,7 @@
     \begin{pgfonlayer}{Beschriftung}
     %elektronische Komponenten
         %Radsatzgenerator
-        \path[annotation, thin] (wsg) -- +(-.5,-.5) node[left] {Radsatzgenerator};
+        \path[annotation, thin] (wsg) -- +(-.5,-.5) node[left] {Achsdeckelgenerator};
         %Rechner
         \path[annotation, thin] (bcu) -- +(1,-1) node[right] {Bordelektronik};
         %Batterie

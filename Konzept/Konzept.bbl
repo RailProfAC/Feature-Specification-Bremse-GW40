@@ -1,0 +1,70 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global}
+  \entry{autonBetrieb}{article}{}
+    \name{author}{1}{}{%
+      {{hash=EM}{%
+         family={Enning},
+         familyi={E\bibinitperiod},
+         given={Manfred},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{EM1}
+    \strng{fullhash}{EM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{title}{Auf dem Weg zum autonomen Betrieb der Letzten Meile}
+    \verb{url}
+    \verb folgt
+    \endverb
+    \field{journaltitle}{Autonomes, teilautomatisiertes Fahren und
+  Assistenzsysteme im Schienenfahrzeugbetrieb - Breidenbach und Frost}
+    \field{year}{03.04.2019}
+  \endentry
+
+  \entry{GAK}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SMERPB}{%
+         family={Schmidt},
+         familyi={S\bibinitperiod},
+         given={M.\bibnamedelima Enning; R. Pfaff;\bibnamedelima B.},
+         giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod R\bibinitperiod
+  P\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SMERPB1}
+    \strng{fullhash}{SMERPB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Innovationen im Betrieb: Vollautomatische \newline
+  ''Briefkasten''-Anschlussbedienung - Gleisanschlussverkehr 4.0}
+    \verb{url}
+    \verb www.vdv-akademie.de/downloads-archiv-tagungen-und-seminare/bme-vdv-gl
+    \verb eisanschluss- konferenz2018/
+    \endverb
+    \field{journaltitle}{1. BME-VDV-Gleis- anschlusskonferenz}
+    \field{year}{17.10.2018}
+  \endentry
+\enddatalist
+\endinput
