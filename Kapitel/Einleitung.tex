@@ -1,0 +1,40 @@
+\section{Einleitung}
+Das Konzept des Güterwagens wird in diesem Dokument weitreichender und detaillierter als im Lasten- und Pflichtenheft beschrieben. Es orientiert sich am Arbeitsplan des Verbundprojektes und stellt besonders die Bereiche der Arbeitspakete Entwicklung der Aktorik und Sensorik und der Datenkommunikation dar.\par
+
+Güterwagen verfügen bisher -- von sehr wenigen Ausnahmen abgesehen -- nicht über eine Stromversorgung. Damit ist auch der Weg zu allen weiteren Innovationen in Richtung Automatisierung und Vernetzung versperrt. Durch die Nutzung batteriebetriebener Telematikboxen ist in  den letzten Jahren die Möglichkeit geschaffen worden, Position und Zustand eines Wagens über cloudbasierte Webplattformen zu beobachten. Dabei bleibt die Dichte und der Umfang der Information aber sehr begrenzt.
+
+Jeder Güterwagen 4.0 verfügt über eine Stromversorgung, durch die der Betrieb von Datenverarbeitungs- und Kommunikationseinrichtung jederzeit -- auch für gewisse Zeiten im abgestellten Zustand -- ermöglicht wird. Darüber hinaus ist das System so dimensioniert, dass auch aktive Eingriffe in den Zustand des Wagens durch elektrisch betriebene Aktoren versorgt werden. Somit erfüllt der Wagen die Voraussetzungen für den Einstieg in die Automatisierung. 
+
+Revolutionäre Ideen im Umfeld des Schienengüterverkehrs gab es schon zu genüge. Um eine wirtschaftliche Migration zu erreichen, muss vor allem für den Einstieg eine sehr sorgfältige Auswahl der ersten Teilziele der Automatisierung getroffen werden. Dabei ist Effizienz das wesentliche Kriterium. Es müssen die Aufgaben gefunden werden, bei denen die Anforderungen an die Teilsysteme des Güterwagens 4.0 (Stromversorgung, Sensorik, Aktorik, Rechnertechnik, Kommunikation) aus Leistungs- und Sicherheitsaspekten möglichst gering sind, dabei aber ein größtmöglicher Nutzen erzeugt wird. 
+
+Nutzenpotenziale gibt es im lokbespannten Hauptlauf (Zugfahrten) durchaus. Zu nennen wären die ep-Bremse sowie die Zugvollständigkeitskontrolle. Wirtschaftliche Vorteile ergeben sich aus höheren Zuggeschwindigkeiten, weniger Verschleiß und langfristig die Möglichkeit der Einführung von Zugsicherungstechniken ohne infrastrukturgestützte Gleisfreimeldung (ETCS Level 3). Sobald man ein System auf den Güterwagen bringt, welches durch Fehlfunktion theoretisch ein Sicherheitsrisiko für eine Zugfahrt werden kann, sind aber die Zulassungsanforderungen sehr hoch, was zu hohen Systemkosten führt.
+
+Für den Einstieg in die Migration bietet sich an, sich zunächst auf die Nebenprozesse zu konzentrieren. Dies umfasst die Automatisierung aller Schritte, die heute durch Rangierer und teilweise durch Wagenmeister bei der Abfertigung von Zügen durchgeführt werden. Also konkret die situationsrichtige Bedienung von Handbremsen% (Hemmschuhe sollten so schnell wie möglich aus dem Routinebetrieb verschwinden)
+, das Vornehmen von Bedienhandlungen zum Einstellen des konventionellen Bremssystems eines Wagens, das Aufnehmen und Verarbeiten von Daten zum Zugverband sowie die Durchführung der Bremsprobe.
+
+All diese Prozesse sind grundsätzlich gut durch Automatisierung zu erledigen. Wenn der letzte Schritt der Zugvorbereitung im sicheren Abschalten aller Aktoren besteht, ist der Zug danach ganz "`normal"', was insbesondere die Anforderungen an Sicherheit und Verfügbarkeit des technischen Systems und damit dessen Kosten deutlich reduziert.
+
+Nachteilig bei dieser Fokussierung ist jedoch, dass einzelne Güterwagen 4.0 nur einen sehr begrenzten positiven Einfluss auf die Arbeitseffizienz haben. Für die automatische Bremsprobe müssen z.B. alle Wagen entsprechend ausgestattet sein. Deshalb müssen auch die Potenziale gesucht und gefunden werde, die abseits der auf den eigentlichen Bahnbetrieb bezogenen Arbeitsprozesse liegen.  
+
+Hohen Nutzen kann Datenverarbeitung und Automatisierung schon an der Ladestelle stiften. Das Spektrum der Möglichkeiten reicht von der papierlosen Abwicklung über die automatisierte Be- und Entladung bis zu autonom durchgeführten Fahrzeugbewegungen innerhalb eines Werksgeländes. Je nach Anwendungsfall kann der wirtschaftliche Nutzen an der Ladestelle bereits die Systemkosten mehr als aufwiegen, so dass für den bahnbetrieblichen Prozess nur noch gefordert werden muss, dass der Wagen den Normalbetrieb nicht stört.
+
+Je mehr Güterwagen 4.0 zum Alltag werden, um so mehr Situationen ergeben sich, in denen auch im gemischten Einzelwagenverkehr Bedienabläufe im Bahnbetrieb vereinfacht werden. Forcieren kann man die Migration, in dem man Verkehre sucht, bei denen sich günstige Ansätze an den Ladestellen mit möglichst "`reinrassigen"' Güterwagen 4.0 Zügen im Hauptlauf kombinieren lassen. Diese Eintrittstore können im Bereich des Kombinierten Verkehrs, aber auch in der Automobillogistik und in anderen Branchenverkehren liegen, bei denen eine kleinteilige Bedienung auf der Werksebene mit Gannzügen oder Wagengruppen im Hauptlauf kombiniert werden.
+
+Für viele solcher Anwendungen ist die Fähigkeit der autarken Bewegung von besonderer Bedeutung. Daher ist Bestandteil des Konzepts Güterwagen 4.0 auch ein einfacher Rangierantrieb und dessen separate (da leistungs- und energiestärkere) Stromversorgung.
+
+
+
+
+
+Beginn mit dem Gesamtkonzept\par
+Dann elektrisches Konzept klarer gezeigt\par
+Dann pneumatisches Konzept ausführlicher \par
+Dann Sensoren\par
+und dann Daten und Datenkommunikation.
+
+
+
+AP 5:
+In Kapitel \ref{sec:dKomp} werden bahnbetriebliche geeignete Nachbereichsfunktechniken für die Kommunikation zwischen Wagen, Wagen und Lok, Wagen und Bediener sowie Wagen und Ladung besprochen. Neben einer hohen Daten- und Sabotagesicherheit wird auf Störfestigkeiten, kurze Latenzzeiten und Echtzeitverfügbarkeit geachtet.
+Dadurch soll eine Verfolgung der Güter, eine kontinuierliche Überwachung und eine statistische Auswertung der Betriebs- und Logistikprozesse ermöglicht werden.
+Es erfolgt eine Anforderungsanalyse, eine Spezifikation und Konzeption.

@@ -1,0 +1,16 @@
+%%%%%%%%%%%%%%%%% Glossar Abkürzungsverzeichnis Beginn
+    \usepackage[acronym]{glossaries} %Glossar %\usepackage[acronym, toc]{glossaries} %Glossar mit Aufruf im Inhaltsverzeichnis
+    \makeglossaries
+    \input{Hintergrund/Glossar.tex}
+    \input{Hintergrund/Abkuerzungen.tex}
+%%%%%%%%%%%%%%%% Glossar, Abkürzungsverzeichnis Ende
+%%%%%%%%%%%%%%%% Quellen Beginn
+    \usepackage[backend=bibtex,
+        style=numeric,
+        bibencoding=ascii
+        %style=alphabetic
+        %style=reading
+    ]{biblatex}
+    \addbibresource{Hintergrund/Quellen.bib}
+    \usepackage{csquotes}
+%%%%%%%%%%%%%%%%% Quellen Ende

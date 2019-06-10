@@ -1,0 +1,74 @@
+\section{Konzept Datenkommunikation}\label{sec:dKomp}
+In diesem Kapitel geht es um die konzeptuelle Ausführung der Datenkommunikation. Es teilt sich auf in die Teile Hardware und Software und ist zugehörig zum Arbeitspaket 5 - Datenkommunikation; genauer AP 5a: Entwicklung eines Hardware- und Software-Konzepts für die Kommunikation und behandelt die Ausführung der notwendigen Daten und deren Kommunikationsmöglichkeiten in Hard- und Software.  Auch die Rechnerarchitektur wird hier beschrieben.\par
+Die entsprechenden Hardwarekomponenten sind in Abbildung \ref{fig:dKomp} in violett farblich markiert.
+\begin{figure}[hbt]
+    \centering
+    \input{Bilder/SchemaDKomp.tex}
+    \caption{Hardwarekomponenten zur Datenkommunikation des Gesamtsystems}
+    \label{fig:dKomp}
+\end{figure}
+Damit die Wagen untereinander sozial interagieren können, ist eine Kommunikation untereinander ebenso notwendig wie Informationen über sich selbst. Zur Verarbeitung und Sicherung eigener Daten werden Sensoren und Aktoren ausgelesen und im Digitalen Zwilling gespeichert.\par
+Dieser Digitale Zwlling wird bei der Kommunikation mit anderen Wagen, der Lok oder mobilen Device je nach Autorisierung mit Lese- oder Lese- und Schreibzugriff ausgetauscht.\par
+Der Wagen besitzt, siehe Abbildung \ref{fig:Wagenkomm}, zwei, an den Längsseiten angebrachte, Möglich- keiten für den Kurzstreckenfunk zur Kommunikation mit Nachbarwagen, sowie zwei WLAN-Antennen mit eigener CPU an zwei gegenüberliegenden Ecken als Kommunikationsschnittstelle zum Bediener sowie zur Überbrückung nicht ausgerüsteter Wagen im \gls{Wagenzug}. Zusätzlich hat jeder Wagen zur Ortung und Zeitsynchronisation eine GPS-Antenne und - je nach Ausstattung - eine optionale Möglichkeit für den Fernfunk mittels GSM, GSMR, UMTS oö zum Übersenden von Daten in die Cloud. Die Kommunikation mit Sensoren und Aktoren läuft direkt über den Hauptrechner. Dieser ist leistungsstärker und beinhaltet neben der Verarbeitung der Sensor- und Aktordaten auch das Batteriemanagementsystem, sowie die Digitale Identität.\par
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/wagen_draufsicht.png}
+    \caption{Kommunikationsmöglichkeiten und angedeutete Rechnerstruktur eines einzelnen Güterwagen 4.0}
+    \label{fig:Wagenkomm}
+\end{figure}
+Die Kommunikation im Wagen findet über ein Bussystem mit geringem spezifischen Energiebedarf statt. Für erste Tests ist EtherCAT angedacht.\par
+Die Kommunikation der Wagen untereinander findet entweder, bei nicht vollständig ausgerüsteten Wagenzügen, über ein WLAN-Mesh (siehe Abbildung \ref{fig:Wagenkomm}, blau) in mittlerer Distanz oder direkt über eine Kurzdistanz-Verbindung (lila) statt. Diese Kurzdistanzverbindungen können kabelgebunden über Ethernet, NFC, WLAN mit 60GHz oder BlueTooth entstehen. Eine sinnvolle Auswahl wird im Projekt getroffen. Bei beiden Kommunikationswegen ist wichtig, dass diese sicher und unempfindlich gegenüber Störungen und Manipulation ist. Sie soll außerdem über Kurz- und Mittelstreckenfunk redundant ausgeführt sein, was zu einer  höheren Sicherheit und Zuverlässigkeit führt. Siehe dazu auch Abbildung \ref{fig:Zugkomm}. \par
+Zusätzlich soll auch noch eine optionale Verbindung zu einer Cloud im Fernbereichsfunk zur Verfügung stehen. Diese erhält allerdings nur einen Lesezugriff um eine Manipulation über die Cloud so schwierig wie möglich zu gestalten.\par
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/zug_draufsicht_bogen.png}
+    %\includesvg[width=\textwidth]{Bilder/zug_draufsicht_bogen}
+    \caption{Kommunikation im Zugverband\cite{autonBetrieb}}
+    \label{fig:Zugkomm}
+\end{figure}
+Die Kommunikation mit dem Bediener erfolgt lokal innerhalb des wageneigenen WLANs, bzw. des \gls{Wagenzug}es eigenen WLAN-Meshs. Eine genaue Ausarbeitung dieser Kommunikation erfolgt im Projekt. Möglich wären beipielsweise einzelne Bedienelemente mittels RFID oder QR-Code anzuwählen und am mobilen Endgerät zu bedienen.\par
+Bei einer Vollausrüstung von Wagen mit Kommunikation von Wagen zu Wagen über Funk und innerhalb der Wagen über EtherCAT ist diese Kommunikation kaum störbar. Hier bietet der \gls{Gueterwagen} auch volles Potential für Zugautomatisierungen inklusive Zugtaufe, \gls{Bremsprobe} und \gls{ep-Bremsen}n. Sogar ETCS Level 3 kann möglich sein.\par
+Aber auch bei nur einer Teilausrüstung der Wagen kann eine Nutzentfaltung durch Digitalisierung von Prozessen an der Ladestelle stattfinden. Eine Automatisierung ist dann in Verbindung mit stationärer Technik im Betrieb möglich.\par
+Die Vernetzung zur Lok kann mittels eines Dongles an der UIC 556-Schnittstelle über das Wire-Train-Bus-Gateway stattfinden. Dies ist als Idee angedacht, wird aber nicht im Projekt umgesetzt.\par
+
+\paragraph{Rechnerstruktur}
+Damit eine sichere Datenhaltung und -übertragung möglich ist, wird die in Abbildung \ref{fig:Wagenkomm} gezeigte Rechnerarchitektur für den Hauptrechner vorgeschlagen. Diese ist eine Überlegung, muss aber noch nicht für das Labormuster oder den Demonstrator aufgebaut werden.\par
+Der in der Mitte gezeigte Hauptrechner besteht aus zwei getrennten Kernen. Diese sorgen für eine Zweikanaligkeit im sicherheitskritischen Bereich. Ebenfalls zweikanalig ausgeführt ist, wie oben beschrieben, die Kommunikation mit den anderen Wagen.\par
+Angedeutet sind der Bediener, dessen Schnittstelle der Nahbereichsfunk darstellt, das GSM-Modul, die Schnittstelle zur Cloud und die Sensoren, Aktoren und Kommunikationseinheiten im Wagen.\par
+Die beiden Kerne im Hauptrechner tauschen sich gegenseitig rückkopplungsfrei aus und geben ihre Befehle zweikanalig an Sensoren, Aktoren und die Kommunikationseinheiten im Wagen weiter. Die zurückkommenden Informationen (rote Pfeile zu Rechner 1 und Rechner 2) werden von den Rechnern verarbeitet und im Speicher gesichert.\par
+Befehle aus der Nahbereichsschnittstelle werden vom Bediener gegeben und nach Autorisierung verarbeitet. \par
+
+\paragraph{Softwarestruktur}
+Die Softwarestruktur, siehe das Diagramm in Abbildung \ref{fig:SWStruktur}, zeigt den Hauptrechner HR sowie die beiden Kommunikationsmodule R1 und R2 im \gls{Gueterwagen 40}. Angenzend dazu sind andere Wagen und ein Bediener angedeutet.
+Alle Rechner sind mit einem Linuxsystem auszustatten. Zu erkennen ist, dass die beiden Kommunikationsrechner nur Schnittstellen zum Hauptrechner und zur Kommunikation mit weiteren Wagen sowie zum Bediener haben. Der Hauptrechner dagegen ist leistungsstärker und verarbeitet alle hereinkommenden Daten. Dazu gehört das BMS, die Digitale Identität, alle Sensor- und Aktordaten. Ebenso wird hier die Zugzusammenstellung und Zugtaufe ebenso wie der virtuelle Bremszettel verarbeitet. Er bietet die Intelligenz des Güterwagens 4.0.\par
+Die Software selbst soll vorallem intern arbeiten und über generische Netzwerkschnittstellen kommunizieren. So kann ein häufiges verändern der Software durch Änderungen in der Hardware vermieden werden. Die Kommunikation mit der Hardware kann dann beispielsweise über eine REST-Schnittstelle erfolgen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm%\textwidth
+    ]{Bilder/Softwarestruktur.png}
+    \caption{Softwarestrukturdiagramm des Güterwagen 4.0}
+    \label{fig:SWStruktur}
+\end{figure}
+
+
+\begin{comment}
+\subsubsection{Hardware}
+An Hardwarekomponenten sind Funkstellen für die Wagenkommunikation geplant.
+\begin{itemize}
+    \item Komponenten für Kurzstreckenfunk -- WLAN 60GHz/2,4GHz -- Wagen-Wagen, Wagen-Lok -- 1b
+    \item Komponenten für mittlere Distanzen -- Wagen...Wagen, Wagen-Device
+    \item Komponenten für Fernbereichsfunk -- Wagen-Cloud
+\end{itemize}
+\subsubsection{Software}
+\begin{itemize}
+    \item Lademanagement \label{sec:Lademanagment} -- 3d
+    \item Anforderungen an sicheres funkgestütztes Bedienen und beobachten bei der Zugbildung -- 1d
+    \item DI -- 1c
+    \item \gls{WagonOS}
+    \item Kommunikationsprotokolle - Datenkommunikation -- 1c
+    \item automatische Zugbildung -- 1c
+    \item automatische Bremsprobe -- 1c
+    \item automatische Bremseinstellung
+\end{itemize}
+\end{comment}

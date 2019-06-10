@@ -1,0 +1,96 @@
+\begin{tikzpicture}[font = \sffamily, scale = 0.75]
+\tikzstyle{every node}=[font=\small]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+    %%%%%%%%%%%%%%%%%%%%%%%%%% Funkkommunikation
+    %%%%%%%%%%%% Seite A
+    \node (FunkA1a) at (-7.5, 6.8) {Funkkommunikation};
+    \node (FunkA1b) at (-7.5, 6.3) {zum nächsten Wagen};
+    \path[class4] (-8, 6) -- (-7, 6) -- (-7, 5) -- (-8,5) -- (-8 ,6);
+    \node (FunkA2a) at (-7.5, -4.7) {Funkkommunikation};
+    \node (FunkA2b) at (-7.5, -4.2) {zum nächsten Wagen};
+    \path[class4] (-8, -6) -- (-7, -6) -- (-7, -5) -- (-8,-5) -- (-8 ,-6);
+    %%%%%%%%%%%% Seite B
+    \node (FunkB1a) at (7.5, 6.8) {Funkkommunikation};
+    \node (FunkB1b) at (7.5, 6.3) {zum nächsten Wagen};
+    \path[class4] (8, 6) -- (7, 6) -- (7, 5) -- (8,5) -- (8 ,6);
+    \node (FunkB2a) at (7.5, -4.7) {Funkkommunikation};
+    \node (FunkB2b) at (7.5, -4.2) {zum nächsten Wagen};
+    \path[class4] (8, -6) -- (7, -6) -- (7, -5) -- (8,-5) -- (8 ,-6);
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%% Sensoren
+    \node (SensA) at (-7.5, 3.6) {Sensoren};
+    \path[class3] (-8, 3) -- (-7, 3) -- (-7, 2) -- (-8,2) -- (-8 ,3);
+    \path[class3] (-8, 1.5) -- (-7, 1.5) -- (-7, 0.5) -- (-8,0.5) -- (-8 ,1.5);
+    \node (SensB) at (7.5, 3.6) {Sensoren};
+    \path[class3] (8, 3) -- (7, 3) -- (7, 2) -- (8,2) -- (8 ,3);
+    \path[class3] (8, 1.5) -- (7, 1.5) -- (7, 0.5) -- (8,0.5) -- (8 ,1.5);
+    
+    %%%%%%%%%%%%%%%%%%%%%%%% Aktoren
+    \node (AktB) at (7.5, -0.1) {Aktoren};
+    \path[class5] (8, -1.5) -- (7, -1.5) -- (7, -0.5) -- (8,-0.5) -- (8 ,-1.5);
+    \path[class5] (8, -3) -- (7, -3) -- (7, -2) -- (8,-2) -- (8 ,-3);
+    \node (AktA) at (-7.5, -0.1) {Aktoren};
+    \path[class5] (-8, -3) -- (-7, -3) -- (-7, -2) -- (-8,-2) -- (-8 ,-3);
+    \path[class5] (-8, -1.5) -- (-7, -1.5) -- (-7, -0.5) -- (-8,-0.5) -- (-8 ,-1.5);
+    \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Geschwungene Linie
+%\draw[wagon, dash dot] plot [smooth] coordinates {(-6,8) (-5.2,6) (-6.5, 0) (-5.2, -4) (-6,-7)};
+%\draw[wagon, dash dot] plot [smooth] coordinates {(6,8) (5.2,6) (6.5, 0) (5.2, -4) (6,-7)};
+\draw[wagon, dash dot] (-5, 7) -- ( -5, -3.7) -- (5, -3.7) -- (5, 7) -- (-5, 7);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% sicherheitskritischer Bereich
+%Beschriftung
+\node[gray] (Beschriftung) at (6.2, 3.5) {Schicht 1};
+%Rechner 
+\path[class1, fill=class1!50] (-1,5) rectangle +(2.5,1.5) node[pos = 0.5] (R1) {Rechner 1};
+\path[class1, fill=class1!50] (-1,1) rectangle +(2.5,1.5) node[pos = 0.5] (R2) {Rechner 2};
+\draw[<->, dashed, wagon] (0.25, 5) to (0.25,2.5);
+\draw[->, class1] (R1) -| (-6.5, 4.7); %R1-Wagen
+\draw[->, class1] (-1, 2) -| (-6.5, 2.8); %R2 - Wagen
+\draw[<-, class1] (-0.5, 5) |- (-5.2, 3.9); %Wagen -R2
+\draw[<-, class1] (-0.5, 2.5) |- (-5.2, 3.6); %Wagen-R!
+
+%Zwischenspeicher
+\path[class3, fill=class3!50] (-3.2, 1.15) ellipse (1.5 and 0.6);
+\node[text width = 1.8cm] (B) at (-3., 1.15) {\small{Zwischen- speicher}};
+\path[class1, thin] (-3.25, 1.7) |- (-1, 5.2) {}; %Zwischenspeicher - R1
+\path[class1, thin] (-2., 1.5) -- (-1, 1.5) {}; %Zwischenspeicher - R2
+
+%Wagen
+\node[gray] (SAK1) at (-7, 3.5) {Sensoren};
+\node[gray] (SAK2) at (-7, 3.0) {Aktoren};
+\node[gray] (SAK3) at (-7, 4.0) {Kommunikation};
+\node[gray] (SAK4) at (-7, 4.5) {Nachbarwagen};
+
+%Speicher
+\path[class1, fill=class1!50] (3, 1.15) ellipse (1.1 and 0.6);
+\node (s) at (3, 1.15) {Speicher};
+\draw[->, class1] (1.5, 5.75) -| (3.9, 1.5); %R1 - Speicher
+\draw[->, class1] (1.5, 2.25) -| (2.7, 1.7); %R2 - Speicher
+\draw[->, dashed, wagon] (2.3, 0.55) to (2.3, -1.5); %Speicher GSM
+\draw[->, dashed, wagon] (2.3, 0.55) to (-2.25, -1.5); %Speicher- Nahbereich
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Linie
+\path[wagon] (-5,0) -- (5,0) {};
+\path[wagon] (-5,0.05) -- (5,0.05) {};
+%%%%%%%%%%%%%%%%%%%%%%%%% nicht sicherheitskrischer Bereich
+%Beschriftung
+\node[gray] (Beschriftung) at (6.2, -1.8) {Schicht 2};
+%GSM-Modul
+\path[class4, fill=class4!50] (0.8, -3) rectangle +(3,1.5) node[pos = 0.5] (GSM) {GSM-Modul};
+\draw[->, class4, dotted] (2., -3) to (2., -5);
+\draw[<-, class4, dotted] (2.5, -3) to (2.5, -5);
+\node[gray] (C) at (2.3, -5.3) {Cloud};
+
+
+%Nahfunkbereich
+\path[class4, fill=class4!50] (-4.3, -3) rectangle +(4,1.5) node[pos = 0.5] (NF) {Nahbereichsfunk};
+\draw[->, class1] (-2.35, -1.5) to (-3,0.5);
+\draw[->, class4, dotted] (-2.0, -3) to (-2.0, -5);
+\draw[<-, class4, dotted] (-2.5, -3) to (-2.5, -5);
+\node[gray] (B) at (-2.3, -5.3) {Bediener};
+
+\end{tikzpicture}

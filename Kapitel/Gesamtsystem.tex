@@ -1,0 +1,92 @@
+\section{Beschreibung des Gesamtsystems}
+%In diesem Kapitel wird das Gesamtsystem beispielhaft an einem Wagen erläutert. \par
+Der neue intelligente \gls{Gueterwagen} soll in Zukunft selbst wissen, was wann mit ihm gemacht wurde, wo er war und welche Wartungszyklen wie eingehalten wurden. Ebenso soll auch eine Überwachung des aktuellen Zustandes und Rückschlüsse auf die Zukunft mittels Sensoren zur vorausschauenden Instandhaltung möglich sein.\par
+Des Weiteren  soll er physisch bei der Zugvorbereitung helfen. Erst nur durch aktive Unterstützung bei der Feststellbremse, sodass keine \gls{Hemmschuh}e benötigt werden, Verstellen der \gls{Bremsart}, automatisches Durchführen einer \gls{Bremsprobe} oder Hilfe bei Zugtrennungen. Später aber auch durch ein gewisses Maß an selbstständigem Rangiervermögen.\par
+Ebenfalls geplant ist eine digitale Unterstützung bei der Zugvorbereitung. Hier sind vor allem Unterstützungen im Bereich automatische Bremsberechung und \gls{Bremsprobe}, aber auch bei der Zugzusammenstellung geplant.\par
+Dafür werden einerseits Sensoren und Aktoren am Wagen angebracht, andererseits auch eine Stromversorgung und ein Bordrechner mit Betriebssystem.\par
+Diese Punkte sorgen ebenso für mehr Effizienz in der Zugvorbereitung, nicht nur im Einzelwagenverkehr, auch im Bereich der Ganzzüge und dem Kombinierten Verkehr, die in den Betriebsstätten ebenfalls alleine oder in kleinen Wagengruppen vorbereitet werden, als auch bieten sie angenehmere Arbeitsplätze, bessere Überwachung der Wagen und kosteneffizientere Instandhaltung durch genauere Wartungsintervalle.\par
+%Begonnen wird mit der physischen Beschreibung des Güterwagens 4.0. Danach folgt eine Beschreibung des virtuellen Güterwagens im Betriebssystem und der Cloud.\par
+
+\subsection{Der Güterwagen 4.0}
+Die einzelnen Komponenten bestehen aus Kombinationen der hier vorgestellten Subsysteme. Darum sollen diese auch hier noch einmal kurz behandelt werden.
+
+\subsubsection{Energieversorgung}
+Die dauerhafte Versorgung des \gls{Gueterwagen}s mit Energie stellt ein Novum im Güterver- kehr dar. Vor allem die Nachspeisung der Pufferbatterie durch verschiedene Quellen soll die Akzeptanz erhöhen. In Abbildung \ref{fig:GesSys} ist der \gls{Gueterwagen 40} mit Radsatzgenerator und externer Ladeschnittstelle gezeigt (Kapitel \ref{sec:RSG}). Zusätzlich denkbar sind auch eine Aufladung über die Automatische Kupplung, handgekuppelte Kabelstränge von einem Wagen zum nächsten bei fest verbundenen Wagengruppen, Solarpanels oder sogar Brennstoffzellen. %Diese haben je nach Anwendungsfall alle ihre Zielgruppe.
+\par
+Die Batterie (Kapitel \ref{sec:Batterie}) speist wiederum sämtliche Aktoren, Sensoren und die Bord- elektronik. Diese Speisung erfolgt sowohl bei der Fahrt zur Aufnahme von Daten der Sensoren sowie der Aktorik der \gls{ep-Bremsen}, als auch bei Stillstand. Hier müssen Lademanagement und Betriebssystem %(Kapitel \ref{sec:Lademanagment}) 
+dafür sorgen, dass alle notwendigen Prozesse weiterlaufen, alle Anderen aber heruntergefahren werden, oder die Aktualisierung von Daten seltener erfolgt.
+
+
+\subsubsection{Bremse 4.0}
+Die Bremse des \gls{Gueterwagen 40} bietet folgende Funktionen:
+\begin{itemize}
+    \item \acrshort{TSI}-konformes Steuerventil mit den \gls{Bremsart}en G und P (Kapitel \ref{sec:Bremsart})
+    \item Fernbetätigte Endabsperrhähne (Kapitel \ref{sec:Endabsperrhahn})
+    \item Fernbetätigung verschiedener Bremsfunktionen  (Kapitel \ref{sec:Bremsart})
+    \begin{itemize}
+        \item Schnelllösen
+        \item Bremse aus
+        \item Bremsstellung
+        \item Feststellbremse
+        \item \gls{ep-Bremsen}n
+        \item Lastabbremsung
+    \end{itemize}
+    \item Anzeige des Zustands (drucklos, druckbeaufschlagt) der pneumatischen Kupplung (Kapitel \ref{sec:ZustandKupplung})
+    \item Messung des C-Drucks (Kapitel \ref{sec:C-Druck})
+\end{itemize}
+
+
+\subsubsection{Bedienen und Beobachten}
+Wird von Manfred geschrieben
+
+\subsubsection{Intelligente Vernetzung}
+Der \gls{Gueterwagen 40} ist als 'intelligenter' Wagen im Sinne der Industrie 4.0 im Schienenverkehr geplant. Dafür benötigt er, neben der Energieversorgung und der teilautomatisierten Bremse, auch einen Bordrechner, der diese 'Intelligenz' liefert.\par
+Auf diesem Rechner soll als Betriebssystem das sogenannte '\gls{WagonOS}' installiert sein. Dieses bietet als Open Source-System ein offenes Betriebssystem mit vielen Ausbaumög- lichkeiten. Das \gls{WagonOS} bietet den Nutzern des \gls{Gueterwagen 40} diesen auf genau die benötigten Anwendungsfälle zu Optimieren und sogar die Möglichkeit eigene Applikationen zu erstellen.\par
+Des Weiteren liegen auf dieser Speichereinheit dezentral alle für die Zugbildung und Instandhaltung wichtigen Informationen über den Wagen. Dazu gehören bauartspezifische Parameter wie Gewicht, Länge, Achszahl, maximal Zuladung und Höchstgeschwindigkeit genauso wie wagenspezifische Informationen wie Besitzer, Laufleistung, Informationen aus den Sensoren, letzte Wartungen und nächste Instandhaltungszyklen.\par
+Diese Informationen liegen ebenso als 'Digitaler Zwilling' in einer Cloud. Bei Verbindung des Wagens zum Internet und Änderung der Informationen auf dem Wagen wird dieser Zwilling regelmäßig aktualisiert.\par
+Im Verband mit anderen Wagen verhält sich der \gls{Gueterwagen 40} 'sozial' und teilt alle notwendigen Informationen über sich mit den anderen Wagen und der Lok als gleichberechtigte Partner. Durch die Verbindung von Wagen zu Wagen ist keine durchgehende Internetverbindung notwendig. Die Informationen können lokal ausgetauscht und später synchronisiert werden.\par
+Im Projekt umgesetzt werden soll davon eine reduzierte Form des \gls{WagonOS}. Eine Entwicklung des vollständigen Betriebssystems findet nicht im Rahmen dieses Projektes statt.\par
+Diese reduzierte Form des Betriebssystems soll eine Speicherung und Auswertung aller relevanter Daten auf dem Bordrechner ermöglichen. Eine weitere Datenspeicherung als 'Digitaler Zwilling' findet in der Cloud statt.
+
+
+
+\subsection{Physischer Güterwagen 4.0}
+Das Gesamtsystem, bestehend aus elektrischer, pneumatischer, sensorischer und Datenkomponenten ist in der Abbildung \ref{fig:GesSys} zu sehen.\par
+    \begin{figure}[hbt]
+        \centering
+    \input{Bilder/SchemaGesSys.tex}
+        \caption{Zusätzliche Komponenten des Gesamtsystems}
+        \label{fig:GesSys}
+    \end{figure}
+Abgebildet ist im Hintergrund in grau ein gebremster, vier-achsiger (in zwei Drehgestellen) \gls{Gueterwagen}, mit Puffern und Schraubenkupplung. Eine genaue Bauart ist und soll nicht erkennbar sein. Die elektrischen Komponenten sind in blau, die pneumatischen Komponenten in grün, die sensorischen Komponenten in rot und die Datenkomponenten in violett eingefärbt. Zusätzlich sind die Elemente, die mit Strom versorgt werden auch mit einer schwarzen, gestrichelten Linie verbunden.\par
+Das Konzept des \gls{Gueterwagen}s besteht aus vier großen Unterpunkten, die hier beschrieben werden.
+\begin{itemize}
+    \item Stromversorgung des \gls{Gueterwagen}s,
+    \item Teilautomatisierung des \gls{Gueterwagen}s durch Aktoren,
+    \item Zustandsüberwachung des \gls{Gueterwagen}s durch Sensoren und
+    \item Intelligenter Vernetzung zwischen \gls{Gueterwagen} und weiteren Bahnanlagen.
+\end{itemize}
+Diese Punkte werden in folgenden Unterkapiteln einzeln beleuchtet. Nach einer Beschreibung des virtuellen \gls{Gueterwagen}s folgt die Stromversorgung mit ihren Komponenten, anschließend erfolgt eine Ausführung über pneumatische Komponenten, die der Teilautomatisierung durch Aktoren entspricht. Im Anschluss folgt ein Kapitel über die Zustandsüberwachung mittels Sensorik und später eine Ausführung über die Systeme, die dem Wagen 'Intelligenz' bieten sollen.
+
+\subsection{Virtueller Güterwagen 4.0}
+Für eine, wie die bereits beschriebene, intelligente Vernetzung der \gls{Gueterwagen} wird nicht nur ein physischer \gls{Gueterwagen} mit Sensoren und Aktoren sowie deren Auswertung benötigt, sondern auch eine Kommunikationsmöglichkeit. Für diese wird eine virtuelle Entsprechung des \gls{Gueterwagen}s benötigt: der virtuelle \gls{Gueterwagen 40}.\par
+Jeder \gls{Gueterwagen 40} besitzt einen 'Digitalen Zwilling'. In ihm werden alle Zustände und Aktorstellungen gespeichert. Siehe dazu auch \ref{sec:dKomp}. Für die Speicherung der Daten und Kommunikation mit anderen Wagen wird das bereits angesprochene Betriebssystem '\gls{WagonOS}' benötigt.\par
+Die Architektur dieser offenen \gls{Gueterwagen}-Software stützt sich auf folgende Punkte:
+\begin{itemize}
+    \item Internettechnologien
+    \item IPv6-basiert
+    \item Dezentral
+    \item Zukunftssicher
+\end{itemize}
+Durch die Wahl von Internettechnologien sind beliebige Übertragungsmöglichkeiten wähl- bar und kombinierbar.\par
+Durch eine Basierung auf IPv6 ist eine eindeutige Identifizierung jedes Wagens möglich. Zur eindeutigen Zuordnung soll die UIC-Wagennummer auch der Netzwerkadresse entsprechen. Siehe dazu auch Abbildung \ref{fig:IPv6}.\par
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/ipv6_concept.png}
+    \caption{Mögliche Darstellung des virtuellen \gls{Gueterwagen}s mit IPv6-Netzwerkadresse\cite{GAK}}
+    \label{fig:IPv6}
+\end{figure}
+Alle Wagen sollen hierarchisch gleich gestellt sein. außerdem darf keine Abhängigkeit zu Netzwerkverbindungen oder Servern bestehen. Darum soll durch Dezentralität und lokalen Netzwerken immer eine lokale Verbindung bestehen. In dieser wird eine lokale Hierarchie gebildet.\par
+Im Verband mit anderen Wagen verhält sich der \gls{Gueterwagen 40} sozial und teilt alle notwendigen Informationen über sich mit den anderen Wagen und der Lok als gleichberechtigte Partner. Dazu gehören bauartspezifische Parameter wie Gewicht, Länge, Achszahl, maximal Zuladung und Höchstgeschwindigkeit genauso wie wagenspezifische Informationen wie Besitzer, Laufleistung, Informationen aus den Sensoren, letzte Wartungen und nächste Instandhaltungszyklen.\par
+Aufgrund der vielen unterschiedlich konfigurierten \gls{Gueterwagen} und Zugängen zu Daten und Akten wird eine NoSQL-Technologie als Datenbankformat gewählt. Diese sorgt auch bei unterschiedlichen Versionen und Daten für eine zukunftssichere Datenbank.\par
+Eine weitere Beschreibung des Bordrechners ist in Kapitel \ref{sec:eKomp} zu finden, die Beschreibung der Kommunikation in Kapitel \ref{sec:dKomp} zu finden.

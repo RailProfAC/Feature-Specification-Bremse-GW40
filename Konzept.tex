@@ -1,0 +1,51 @@
+\documentclass[11pt,a4paper,parskip]{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%Packages
+\input{Packages/Ueblich.tex}
+\input{Packages/Tikz.tex}
+\input{Packages/GlosQuel.tex}
+\input{Packages/Anf.tex}
+%%%%%%%%%%%%%%%%%%%%%Packages
+\linenumbers
+
+\begin{document}
+\setlength{\parskip}{5mm}% plus5mm minus5mm} %Absatzlänge
+
+%Deckblatt Beginn
+\input{Hintergrund/Title.tex}
+%Deckblattt Ende
+
+\pagenumbering{roman}
+\input{Hintergrund/Zweck.tex}
+%Verzeichnisse Beginn
+    \input{Hintergrund/Revisionshistorie.tex}\newpage
+    \tableofcontents %\newpage
+    \listoffigures %\addcontentsline{toc}{section}{Abbildungsverzeichnis}https://de.overleaf.com/project/5c64021a633c8218f3e23168
+    %\listoftables %Tabellenverzeichnis 
+    \printglossary[title= Abkürzungen, 
+        toctitle=Abkürzungen, 
+        type=\acronymtype]
+    \printglossary\newpage
+%Verzeichnisse Ende
+
+%Hauptteil Beginn
+\pagenumbering{arabic}
+    \input{Kapitel/Einleitung} \newpage
+    %\input{Kapitel/GesSys} \newpage
+    \input{Kapitel/Gesamtsystem.tex}
+    %\section{Arbeitspaket 3 - Entwicklung Aktorik}
+    \input{Kapitel/eKomp.tex} %\newpage
+    \input{Kapitel/pKomp.tex} %\newpage
+    \input{Kapitel/sKomp.tex} %\newpage
+    \input{Kapitel/dKomp.tex} %\newpage
+    %\input{Kapitel/Fazit.tex} \newpage
+%Hauptteil Ende
+
+%Anhang Beginn
+\pagenumbering{Roman}
+    \printbibliography[heading=bibintoc, title={Quellenverzeichnis}] \newpage
+    \appendix
+    \input{Kapitel/A_Bremse40.tex}
+    %\input{Kapitel/Dokumente.tex}\newpage
+    %\input{Kapitel/Anhang_Bremsprobe.tex}%\newpage
+%Anhang Ende
+\end{document}
