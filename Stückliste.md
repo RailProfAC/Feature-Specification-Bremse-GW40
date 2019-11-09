@@ -22,13 +22,13 @@ Pfaff | 15.03.2019 | Draft distribution| 0.1
 
 Pos. | Anzahl | Bezeichung | Zeichung / Kommentar
 --- | --- | ---| ---
-02.01 | 2 | Aussenanzeige HL | Vergleichbar mit C-Druck-Anzeige
+02.01 | 0 | Aussenanzeige HL | Vergleichbar mit C-Druck-Anzeige
 02.02 | 2 | Endabsperrhahn 1,25" | z.B. Muffenkugelhahn Heco, Rückmeldekontakte
 04.01 | 1 | ep-Bremsen | Mg-Ventil NC
-04.02 | 1 | Kombinationsventil Bremse aus | Mechanisch gekuppelte Kugehähne, ein Antrieb, Rückmeldekontakte
+04.02 | 1 | Rückmeldung Bremse aus | 2 x Rückmeldekontakte
 04.03 | 1 | Steuerventil | z.B SW4 mit G/P-Umstellung
 04.04 | 1 | Umstellantrieb G/P | Stellantrieb, Rückmeldekontakte
-04.05 | 1 | Vorsteuervenitl Schnelllösen | Mg-Ventil NC
+04.05 | 1 | Vorsteuervenitl Schnelllösen | Mg-Ventil NC mit Handnotbetätigung
 04.06 | 1 | Umstellventil Lastabbremsung | Kugelhahn 1/4", Rückmeldekontakte
 04.07 | 1 | Relaisventil | z.B. Faiveley VCAV
 04.08 | 2 | C-Druck-Sensor | 0-5 bar, 4...20 mA
