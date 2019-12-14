@@ -10,13 +10,14 @@ FH Aachen
 Name | Date | Reason for Changes | Version
 ---  | --- | --- | ---
 Pfaff | 15.03.2019 | Draft distribution| 0.1
+Pfaff | 13.12.2019 | Update following discussions| 0.2
 
 ## Open Items ##
 
 1. Komponentenauswahl
 1. Konstruktion "Bremse Aus"
 1. Konstruktion Aussenanzeigen
-
+1. Bremsberechnung abgleichen -> Drücke RV
 
 ## Parts list ##
 
@@ -24,7 +25,7 @@ Pos. | Anzahl | Bezeichung | Zeichung / Kommentar
 --- | --- | ---| ---
 02.01 | 0 | Aussenanzeige HL | Vergleichbar mit C-Druck-Anzeige
 02.02 | 2 | Endabsperrhahn 1,25" | z.B. Muffenkugelhahn Heco, Rückmeldekontakte
-04.01 | 1 | ep-Bremsen | Mg-Ventil NC
+04.01 | 1 | ep-Bremsen | Mg-Ventil NC, 1/4"
 04.02 | 1 | Rückmeldung Bremse aus | 2 x Rückmeldekontakte
 04.03 | 1 | Steuerventil | z.B SW4 mit G/P-Umstellung
 04.04 | 1 | Umstellantrieb G/P | Stellantrieb, Rückmeldekontakte
